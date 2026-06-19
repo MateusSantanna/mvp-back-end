@@ -25,11 +25,12 @@ Este projeto é o Back-End (API RESTful) da plataforma "Saquarema Verde Online".
 Siga os passos abaixo para configurar o ambiente de desenvolvimento na sua máquina:
 
 **1. Clone o repositório**
+```bash
 git clone https://github.com/MateusSantanna/mvp-back-end.git
 cd mvp-back-end
 
 **2. Crie e ative um ambiente virtual**
-python -m virtualenv venv
+#### python -m virtualenv venv
 ### No Windows:
 venv\Scripts\activate
 ### No Linux/Mac:
