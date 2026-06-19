@@ -27,8 +27,8 @@ Siga os passos abaixo para configurar o ambiente de desenvolvimento na sua máqu
 **1. Clone o repositório**
 ```bash
 git clone https://github.com/MateusSantanna/mvp-back-end.git
-cd mvp-back-end
-
+cd mvp-back-end 
+```
 **2. Crie e ative um ambiente virtual**
 #### python -m virtualenv venv
 ### No Windows:
