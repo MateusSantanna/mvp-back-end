@@ -36,10 +36,10 @@ venv\Scripts\activate
 source venv/bin/activate
 
 **3. Instale as dependências**
-pip install -r requirements.txt
+#### pip install -r requirements.txt
 
 **4. Configure o banco de dados MongoDB**
-Certifique-se de ter o MongoDB Community Server rodando na sua máquina local ou configure a URI do banco no arquivo settings.py.
+#### Certifique-se de ter o MongoDB Community Server rodando na sua máquina local ou configure a URI do banco no arquivo settings.py.
 
 **5. Execute as migrações**
 python manage.py makemigrations
