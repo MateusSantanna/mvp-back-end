@@ -30,22 +30,32 @@ git clone https://github.com/MateusSantanna/mvp-back-end.git
 cd mvp-back-end 
 ```
 **2. Crie e ative um ambiente virtual**
-#### python -m virtualenv venv
-### No Windows:
+```bash
+python -m virtualenv venv
+
+### Ativar no Windows:
 venv\Scripts\activate
-### No Linux/Mac:
+
+### Ativar no Linux/Mac:
 source venv/bin/activate
+```
 
 **3. Instale as dependências**
-#### pip install -r requirements.txt
+```bash
+pip install -r requirements.txt
+```
 
 **4. Configure o banco de dados MongoDB**
 #### Certifique-se de ter o MongoDB Community Server rodando na sua máquina local ou configure a URI do banco no arquivo settings.py.
 
 **5. Execute as migrações**
+```bash
 python manage.py makemigrations
 python manage.py migrate
+```
 
 **6. Inicie o servidor de desenvolvimento**
+```bash
 python manage.py runserver
+```
 A API estará disponível para testes e acesso através de http://127.0.0.1:8000/api/
