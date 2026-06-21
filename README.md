@@ -53,6 +53,13 @@ python manage.py migrate
 
 **5. Inicie o servidor de desenvolvimento**
 ```bash
+
 python manage.py runserver
 ```
 A API estará disponível para testes e acesso através de http://127.0.0.1:8000/api/
+
+## Fora do Escopo (O que este MVP não faz):
+
+* Não há um sistema de reservas ou de pagamentos para os eventos, sendo o foco apenas o ecoturismo informativo.
+* Não existe um sistema de cadastro ou login para usuários comuns/visitantes (apenas para administradores gerenciarem o conteúdo)
+* O sistema não envia notificações por e-mail ou SMS de forma automática
