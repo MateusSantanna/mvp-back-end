@@ -56,7 +56,7 @@ python manage.py migrate
 
 python manage.py runserver
 ```
-A API estará disponível para testes e acesso através de http://127.0.0.1:8000/api/
+A API estará disponível para testes e acesso através de http://127.0.0.1:8000/
 
 ## Fora do Escopo (O que este MVP não faz):
 
