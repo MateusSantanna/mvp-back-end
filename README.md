@@ -13,7 +13,7 @@ Este projeto é o Back-End (API RESTful) da plataforma "Saquarema Verde Online".
 ### Tecnologias Utilizadas
 * **Linguagem:** Python
 * **Framework:** Django (Padrão MTV) e Django REST Framework
-* **Banco de Dados:** SQLite3 (Relacional Padrão do Django)
+* **Banco de Dados:** MongoDB (NoSQL)
 
 ## Funcionalidades da API
 * Listagem pública de eventos ativos e informações dos parques.
