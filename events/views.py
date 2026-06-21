@@ -1,10 +1,14 @@
-from rest_framework.decorators import api_view
+from rest_framework.decorators import api_view, authentication_classes, permission_classes
+from rest_framework.authentication import TokenAuthentication
+from rest_framework.permissions import IsAuthenticatedOrReadOnly
 from rest_framework.response import Response
 from bson import ObjectId
 from .mongo import events_collection
 
 
 @api_view(['GET', 'POST'])
+@authentication_classes([TokenAuthentication])
+@permission_classes([IsAuthenticatedOrReadOnly])
 def list_events(request):
 
     if request.method == 'GET':
@@ -47,7 +51,10 @@ def list_events(request):
             "id": str(result.inserted_id)
         })
     
+
 @api_view(['GET', 'PUT', 'DELETE'])
+@authentication_classes([TokenAuthentication])
+@permission_classes([IsAuthenticatedOrReadOnly])
 def event_detail(request, id):
 
     if request.method == 'GET':

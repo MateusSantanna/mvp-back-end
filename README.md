@@ -1,8 +1,8 @@
 ## Integrantes da equipe
-* **Alexsandro Oliveira**
-* **Mateus Santanna**
-* **Pedro Henri**
-* **Thiago Chagas**
+* **Alexsandro dos Santos Oliveira**
+* **Mateus Silva Santanna**
+* **Pedro Henri Apolinario Gonzo**
+* **Thiago Nascimento Chagas**
 
 ## Situação-Problema Escolhida
 **Circuito Saquarema Verde**: O projeto tem como foco o ecoturismo na região de Saquarema, especificamente promovendo o acesso à informação sobre o Parque Estadual da Costa do Sol e a Reserva Ecológica Estadual de Jacarepiá.
@@ -13,7 +13,7 @@ Este projeto é o Back-End (API RESTful) da plataforma "Saquarema Verde Online".
 ### Tecnologias Utilizadas
 * **Linguagem:** Python
 * **Framework:** Django (Padrão MTV) e Django REST Framework
-* **Banco de Dados:** MongoDB (NoSQL) integrado via Djongo
+* **Banco de Dados:** SQLite3 (Relacional Padrão do Django)
 
 ## Funcionalidades da API
 * Listagem pública de eventos ativos e informações dos parques.
@@ -31,7 +31,7 @@ cd mvp-back-end
 ```
 **2. Crie e ative um ambiente virtual**
 ```bash
-python -m virtualenv venv
+python -m venv venv
 
 ### Ativar no Windows:
 venv\Scripts\activate
@@ -45,16 +45,13 @@ source venv/bin/activate
 pip install -r requirements.txt
 ```
 
-**4. Configure o banco de dados MongoDB**
-#### Certifique-se de ter o MongoDB Community Server rodando na sua máquina local ou configure a URI do banco no arquivo settings.py.
-
-**5. Execute as migrações**
+**4. Execute as migrações**
 ```bash
 python manage.py makemigrations
 python manage.py migrate
 ```
 
-**6. Inicie o servidor de desenvolvimento**
+**5. Inicie o servidor de desenvolvimento**
 ```bash
 python manage.py runserver
 ```
