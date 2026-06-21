@@ -44,16 +44,19 @@ source venv/bin/activate
 ```bash
 pip install -r requirements.txt
 ```
+**4. Configure o banco de dados MongoDB**<br>
+Crie um arquivo `.env` na raiz do projeto contendo a seguinte variável:<br>
+`DATABASE_NAME=saquarema_verde_db`<br>
+*(Certifique-se de ter o MongoDB Community Server rodando na sua máquina local).*
 
-**4. Execute as migrações**
+**5. Execute as migrações**
 ```bash
 python manage.py makemigrations
 python manage.py migrate
 ```
 
-**5. Inicie o servidor de desenvolvimento**
+**6. Inicie o servidor de desenvolvimento**
 ```bash
-
 python manage.py runserver
 ```
 A API estará disponível para testes e acesso através de http://127.0.0.1:8000/
