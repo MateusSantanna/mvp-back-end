@@ -25,7 +25,8 @@ def list_events(request):
                 "local": event["local"],
                 "tipo_atividade": event["tipo_atividade"],
                 "imagem": event["imagem"],
-                "descricao": event["descricao"]
+                "descricao": event["descricao"],
+                "status": event["status"]
             })
 
         return Response(events)
@@ -33,6 +34,7 @@ def list_events(request):
     if request.method == 'POST':
 
         data = request.data
+      
 
         new_event = {
             "titulo": data.get("titulo"),
@@ -41,8 +43,10 @@ def list_events(request):
             "local": data.get("local"),
             "tipo_atividade": data.get("tipo_atividade"),
             "imagem": data.get("imagem"),
-            "descricao": data.get("descricao")
+            "descricao": data.get("descricao"),
+            "status": "Pendente"
         }
+     
 
         result = events_collection.insert_one(new_event)
 
@@ -52,7 +56,7 @@ def list_events(request):
         })
     
 
-@api_view(['GET', 'PUT', 'DELETE'])
+@api_view(['GET', 'PATCH', 'DELETE'])
 @authentication_classes([TokenAuthentication])
 @permission_classes([IsAuthenticatedOrReadOnly])
 def event_detail(request, id):
@@ -72,27 +76,31 @@ def event_detail(request, id):
             "local": event["local"],
             "tipo_atividade": event["tipo_atividade"],
             "imagem": event["imagem"],
-            "descricao": event["descricao"]
+            "descricao": event["descricao"],
+            "status": event["status"]
         })
 
 
-    if request.method == 'PUT':
+    if request.method == 'PATCH':
 
         data = request.data
 
-        events_collection.update_one(
-            {"_id": ObjectId(id)},
-            {
-                "$set": {
-                    "titulo": data.get("titulo"),
-                    "data": data.get("data"),
-                    "hora": data.get("hora"),
-                    "local": data.get("local"),
-                    "tipo_atividade": data.get("tipo_atividade"),
-                    "imagem": data.get("imagem"),
-                    "descricao": data.get("descricao")
-                }
-            }
+        event = events_collection.find_one({"_id": ObjectId(id)})
+
+        if not event:
+            return Response(
+            {"erro": "Evento não encontrado"},
+            status=404\
+         )
+
+        status_permitidos = ["Pendente", "Cancelado", "Finalizado"]
+
+        novo_status = data.get("status")
+
+        if novo_status not in status_permitidos:
+            return Response(
+            {"erro": "Status inválido"},
+            status=400
         )
 
         return Response({"message": "Evento atualizado com sucesso"})
@@ -100,6 +108,9 @@ def event_detail(request, id):
 
     if request.method == 'DELETE':
 
-        events_collection.delete_one({"_id": ObjectId(id)})
+        result = events_collection.delete_one({"_id": ObjectId(id)})
+
+        if result.deleted_count == 0:
+            return Response({"erro": "Evento não encontrado"},status=404)
 
         return Response({"message": "Evento removido com sucesso"})
